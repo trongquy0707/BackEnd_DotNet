@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Web_my_pham.Migrations
 {
-    public partial class database : Migration
+    public partial class mydbcontext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -68,6 +68,7 @@ namespace Web_my_pham.Migrations
                     TenDangNhap = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MatKhau = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SDT = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MaChucVu = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

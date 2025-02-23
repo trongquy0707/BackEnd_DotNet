@@ -11,7 +11,7 @@ using Web_my_pham.Services.AdminServices.Irepository;
 
 namespace Web_my_pham.Controllers.Admin
 {
-    [Authorize(Roles = "Admin")]
+  //  [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class ChucVuController : ControllerBase

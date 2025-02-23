@@ -22,5 +22,9 @@ namespace Web_my_pham.Data
         public int? MaSP { get; set; }
         [ForeignKey("MaSP")]
         public virtual SAN_PHAM_CHI_TIET SAN_PHAM_CHI_TIET { get; set; }
+
+        public int? MaUser { get; set; }
+        [ForeignKey("MaUser")]
+        public virtual TAI_KHOAN TAI_KHOAN { get; set; }
     }
 }

@@ -10,8 +10,8 @@ using Web_my_pham.Data;
 namespace Web_my_pham.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20241008161126_suataikhoan")]
-    partial class suataikhoan
+    [Migration("20250223160623_mydbcontext")]
+    partial class mydbcontext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

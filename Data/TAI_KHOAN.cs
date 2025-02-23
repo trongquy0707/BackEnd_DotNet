@@ -22,6 +22,7 @@ namespace Web_my_pham.Data
 
         [ForeignKey("MaChucVu")]
         public virtual CHUC_VU CHUC_VU { get; set; }
+         public virtual ICollection<HOA_DON_CHI_TIET> HOA_DON_CHI_TIET { get; set; }
 
     }
 }

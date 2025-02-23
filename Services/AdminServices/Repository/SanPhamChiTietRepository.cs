@@ -148,14 +148,12 @@ namespace Web_my_pham.Services.AdminServices.Repository
             sanpham.MoTaChiTiet = model.MoTaChiTiet;
             sanpham.TrangThai = model.TrangThai;
 
-            // Tính toán giá sale
             if (sanpham.GiaGoc > 0 && sanpham.PhanTramSale >= 0)
             {
                 var sale = (sanpham.GiaGoc / 100) * sanpham.PhanTramSale;
                 sanpham.GiaSale = sanpham.GiaGoc - sale;
             }
 
-            // Lưu các thay đổi sản phẩm
             await _myDbContext.SaveChangesAsync();
 
             // Xử lý hình ảnh

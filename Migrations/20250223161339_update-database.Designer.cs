@@ -10,8 +10,8 @@ using Web_my_pham.Data;
 namespace Web_my_pham.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240910114917_database")]
-    partial class database
+    [Migration("20250223161339_update-database")]
+    partial class updatedatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -148,6 +148,9 @@ namespace Web_my_pham.Migrations
                     b.Property<int?>("MaSP")
                         .HasColumnType("int");
 
+                    b.Property<int?>("MaUser")
+                        .HasColumnType("int");
+
                     b.Property<int?>("SoLuongMua")
                         .HasColumnType("int");
 
@@ -156,6 +159,8 @@ namespace Web_my_pham.Migrations
                     b.HasIndex("MaHD");
 
                     b.HasIndex("MaSP");
+
+                    b.HasIndex("MaUser");
 
                     b.ToTable("HOA_DON_CHI_TIET");
                 });
@@ -220,6 +225,9 @@ namespace Web_my_pham.Migrations
                     b.Property<string>("MatKhau")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SDT")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TenDangNhap")
                         .HasColumnType("nvarchar(max)");
 
@@ -249,9 +257,15 @@ namespace Web_my_pham.Migrations
                         .WithMany("HOA_DON_CHI_TIET")
                         .HasForeignKey("MaSP");
 
+                    b.HasOne("Web_my_pham.Data.TAI_KHOAN", "TAI_KHOAN")
+                        .WithMany("HOA_DON_CHI_TIET")
+                        .HasForeignKey("MaUser");
+
                     b.Navigation("HOA_DON");
 
                     b.Navigation("SAN_PHAM_CHI_TIET");
+
+                    b.Navigation("TAI_KHOAN");
                 });
 
             modelBuilder.Entity("Web_my_pham.Data.SAN_PHAM_CHI_TIET", b =>
@@ -293,6 +307,11 @@ namespace Web_my_pham.Migrations
                 {
                     b.Navigation("HINH_ANH");
 
+                    b.Navigation("HOA_DON_CHI_TIET");
+                });
+
+            modelBuilder.Entity("Web_my_pham.Data.TAI_KHOAN", b =>
+                {
                     b.Navigation("HOA_DON_CHI_TIET");
                 });
 #pragma warning restore 612, 618
